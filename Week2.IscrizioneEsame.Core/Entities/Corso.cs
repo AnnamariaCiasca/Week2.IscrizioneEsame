@@ -13,5 +13,10 @@ namespace Week2.IscrizioneEsame
         public int CFU { get; set; }
 
         public int IdCorsoDiLaurea { get; set; }
+
+        public string Print()
+        {
+            return $"Nome: {Nome} - CFU: {CFU}";
+        }
     }
 }

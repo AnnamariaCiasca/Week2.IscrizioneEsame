@@ -9,6 +9,7 @@ namespace Week2.IscrizioneEsame.Mock
 {
     public class RepositoryStudenti : IRepositoryStudenti
     {
+        public static List<Studente> studenti = new List<Studente>();
         public List<Studente> Fetch()
         {
             throw new NotImplementedException();
@@ -16,7 +17,16 @@ namespace Week2.IscrizioneEsame.Mock
 
         public void Insert(Studente item)
         {
-            throw new NotImplementedException();
+            if (studenti.Count() == 0)
+            {
+                item.Id = 1;
+            } 
+                else
+                {
+                item.Id = studenti.Max(s => s.Id) + 1;
+            }
+            studenti.Add(item);
+            }
         }
     }
-}
+

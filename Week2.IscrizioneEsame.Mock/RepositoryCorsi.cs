@@ -37,8 +37,8 @@ namespace Week2.IscrizioneEsame.Mock
 
         public List<Corso> GetCorsiByCdL(CorsoDiLaurea cdl)
         {
-            corsi.Where(c => c.IdCorsoDiLaurea == cdl.Id).ToList();
-            return corsi;
+            return corsi.Where(c => c.IdCorsoDiLaurea == cdl.Id).ToList();
+           
                
         }
 
@@ -46,5 +46,7 @@ namespace Week2.IscrizioneEsame.Mock
         {
             throw new NotImplementedException();
         }
+
+       
     }
 }

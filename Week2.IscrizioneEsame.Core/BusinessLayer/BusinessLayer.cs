@@ -8,7 +8,7 @@ using Week2.IscrizioneEsame.Core.RepositoryInterface;
 
 namespace Week2.IscrizioneEsame.Core
 {
-    public class BusinessLayer: IBusinessLayer
+    public class BusinessLayer : IBusinessLayer
     {
         private readonly IRepositoryCorsi corsiRep;
         private readonly IRepositoryCorsiDiLaurea corsiDiLaureaRep;
@@ -28,19 +28,23 @@ namespace Week2.IscrizioneEsame.Core
             Immatricolazione imm = new Immatricolazione();
             imm.DataInizio = DateTime.Now;
             imm._CorsoDiLaurea = GetCorsi(cdl);
-           
-          
+
+
             int ore = imm.DataInizio.Hour;
             int minuti = imm.DataInizio.Minute;
             int secondi = imm.DataInizio.Second;
 
-           var matricola = String.Concat(ore, minuti, secondi);
-           imm.Matricola = Convert.ToInt32(matricola);
+            var matricola = String.Concat(ore, minuti, secondi);
+
+            imm.Matricola = Convert.ToInt32(matricola);
 
             immatricolazioneRep.Insert(imm);
             imm = immatricolazioneRep.GetByDate(imm);
 
+            s.IdImmatricolazione = imm.Id;
             s._Immatricolazione = imm;
+
+            studentiRep.Insert(s);
             return s;
         }
 
@@ -58,6 +62,20 @@ namespace Week2.IscrizioneEsame.Core
             return cdl;
         }
 
-       
+        public bool VerificaCfuPerIscrizioneEsame(Corso corsoScelto, Studente s)
+        {
+            var cfuOK = s._Immatricolazione.CFUaccumumulati + corsoScelto.CFU <= s._Immatricolazione._CorsoDiLaurea.CFUnecessari;
+            if (cfuOK && !s.RichiestaLaurea)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
     }
 }
