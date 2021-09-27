@@ -19,7 +19,7 @@ namespace Week2.IscrizioneEsame
         public string Print()
         {
 
-            return $"CdL: {Nome} - Anni di corso: {AnniDiCorso} - CFU da conseguire: {CFUnecessari}";
+            return $"CdL: {Nome} - Anni di corso: {AnniDiCorso}";
 
 
         }

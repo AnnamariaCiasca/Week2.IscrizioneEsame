@@ -9,6 +9,7 @@ namespace Week2.IscrizioneEsame.Core
     public interface IBusinessLayer
     {
         List<CorsoDiLaurea> FetchCorsiDiLaurea();
-        void GetCorsi(CorsoDiLaurea cdl);
+        CorsoDiLaurea GetCorsi(CorsoDiLaurea cdl);
+        Studente CreaImmatricolazione(Studente s, CorsoDiLaurea cdl);
     }
 }

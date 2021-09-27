@@ -8,7 +8,8 @@ namespace Week2.IscrizioneEsame
 {
     public class Immatricolazione
     {
-        public int Matricola { get; }
+        public int Id { get; set; }
+        public int Matricola { get; set; }
         public DateTime DataInizio { get; set; }
         public CorsoDiLaurea _CorsoDiLaurea { get; set; }
         public bool FuoriCorso { get; set; }
@@ -18,7 +19,7 @@ namespace Week2.IscrizioneEsame
 
      
 
-        public string GetInfo()
+        public string Print()
         {
 
             return $"{Matricola}, {DataInizio}, {_CorsoDiLaurea}, {FuoriCorso},{ CFUaccumumulati}";

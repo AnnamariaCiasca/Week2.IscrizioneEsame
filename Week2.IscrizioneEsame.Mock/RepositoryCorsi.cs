@@ -41,5 +41,10 @@ namespace Week2.IscrizioneEsame.Mock
             return corsi;
                
         }
+
+        public void Insert(Corso item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

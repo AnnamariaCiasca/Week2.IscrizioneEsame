@@ -16,6 +16,8 @@ namespace Week2.IscrizioneEsame
         public string Esami { get; set; }
         public bool RichiestaLaurea { get; set; }
 
+        public int IdImmatricolazione { get; set; }
+
 
         public Studente(string nome, string cognome, int annoDiNascita)
         {

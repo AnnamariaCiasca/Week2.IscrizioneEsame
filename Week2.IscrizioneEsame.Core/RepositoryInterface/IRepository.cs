@@ -8,5 +8,9 @@ namespace Week2.IscrizioneEsame.Core.Interfaces
 {
    public interface IRepository<T>
     {
+        public List<T> Fetch();
+
+        public void Insert(T item);
+
     }
 }

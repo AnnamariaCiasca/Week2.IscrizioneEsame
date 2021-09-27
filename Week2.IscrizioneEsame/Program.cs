@@ -56,7 +56,7 @@ namespace Week2.IscrizioneEsame
 {
     public class Program
     {
-        private static readonly IBusinessLayer bl = new BusinessLayer(new RepositoryCorsi(), new RepositoryCorsiDiLaurea());
+        private static readonly IBusinessLayer bl = new BusinessLayer(new RepositoryCorsi(), new RepositoryCorsiDiLaurea(), new RepositoryImmatricolazione(), new RepositoryStudenti());
         static void Main(string[] args)
         {
             var nome = Console.ReadLine();
@@ -74,7 +74,9 @@ namespace Week2.IscrizioneEsame
 
             var cdl = corsidiLaurea.Where(c => c.Nome == nomeCdL).SingleOrDefault();
 
-            bl.GetCorsi(cdl);
+            s = bl.CreaImmatricolazione(s, cdl);
+
+            Console.WriteLine();
 
         }
     }
